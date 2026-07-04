@@ -19,6 +19,9 @@ if [[ -f "./skill_specter.py" ]]; then
     cp "${SCRIPT_DIR}/skill_specter.py" "${SKILL_DIR}/"
     cp -r "${SCRIPT_DIR}/fingerprints" "${SKILL_DIR}/" 2>/dev/null || true
     cp "${SCRIPT_DIR}/SKILL.md" "${SKILL_DIR}/" 2>/dev/null || true
+    cp "${SCRIPT_DIR}/README.md" "${SKILL_DIR}/" 2>/dev/null || true
+    cp "${SCRIPT_DIR}/update.sh" "${SKILL_DIR}/" 2>/dev/null || true
+    cp -r "${SCRIPT_DIR}/test_fixtures" "${SKILL_DIR}/" 2>/dev/null || true
 else
     echo "→ Cloning from GitHub..."
     git clone https://github.com/xcode4tux/skill-specter.git /tmp/skill-specter-install
@@ -26,6 +29,9 @@ else
     cp /tmp/skill-specter-install/skill_specter.py "${SKILL_DIR}/"
     cp -r /tmp/skill-specter-install/fingerprints "${SKILL_DIR}/" 2>/dev/null || true
     cp /tmp/skill-specter-install/SKILL.md "${SKILL_DIR}/" 2>/dev/null || true
+    cp /tmp/skill-specter-install/README.md "${SKILL_DIR}/" 2>/dev/null || true
+    cp /tmp/skill-specter-install/update.sh "${SKILL_DIR}/" 2>/dev/null || true
+    cp -r /tmp/skill-specter-install/test_fixtures "${SKILL_DIR}/" 2>/dev/null || true
     rm -rf /tmp/skill-specter-install
 fi
 
