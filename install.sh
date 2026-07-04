@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Skill Specter — one-line install
-# Usage: curl -sSL https://raw.githubusercontent.com/ailabs-393/skill-specter/main/install.sh | bash
+# Usage: curl -sSL https://raw.githubusercontent.com/xcode4tux/skill-specter/main/install.sh | bash
 # Or local: bash install.sh
 
 set -euo pipefail
@@ -21,7 +21,7 @@ if [[ -f "./skill_specter.py" ]]; then
     cp "${SCRIPT_DIR}/SKILL.md" "${SKILL_DIR}/" 2>/dev/null || true
 else
     echo "→ Cloning from GitHub..."
-    git clone https://github.com/ailabs-393/skill-specter.git /tmp/skill-specter-install
+    git clone https://github.com/xcode4tux/skill-specter.git /tmp/skill-specter-install
     mkdir -p "${SKILL_DIR}"
     cp /tmp/skill-specter-install/skill_specter.py "${SKILL_DIR}/"
     cp -r /tmp/skill-specter-install/fingerprints "${SKILL_DIR}/" 2>/dev/null || true

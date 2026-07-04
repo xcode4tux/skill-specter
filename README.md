@@ -15,7 +15,7 @@ Skill Specter catches all of these before installation.
 ## Quick Install
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/ailabs-393/skill-specter/main/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/xcode4tux/skill-specter/main/install.sh | bash
 ```
 
 Or locally:
