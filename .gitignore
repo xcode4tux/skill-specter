@@ -1,0 +1,4 @@
+.update-log
+.last-check
+__pycache__/
+*.pyc

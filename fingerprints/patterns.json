@@ -1,0 +1,146 @@
+{
+  "description": "Known malicious skill fingerprint library for Skill Specter",
+  "version": "1.0.0",
+  "fingerprints": [
+    {
+      "id": "FP-001",
+      "pattern": "curl\\s+.*[|]\\s*(?:bash|sh|python)",
+      "severity": "critical",
+      "description": "Remote code execution via curl-pipe-shell pattern",
+      "score_impact": 40
+    },
+    {
+      "id": "FP-002",
+      "pattern": "wget\\s+.*[|]\\s*(?:bash|sh)",
+      "severity": "critical",
+      "description": "Remote code execution via wget-pipe-shell pattern",
+      "score_impact": 40
+    },
+    {
+      "id": "FP-003",
+      "pattern": "rm\\s+-rf\\s+/",
+      "severity": "critical",
+      "description": "Destructive recursive delete from root",
+      "score_impact": 50
+    },
+    {
+      "id": "FP-004",
+      "pattern": ">[ ]*/etc/(?:passwd|shadow|sudoers)",
+      "severity": "critical",
+      "description": "Write to critical system authentication files",
+      "score_impact": 45
+    },
+    {
+      "id": "FP-005",
+      "pattern": "eval\\s+[\"']\\$[{]",
+      "severity": "critical",
+      "description": "Dynamic eval with variable interpolation",
+      "score_impact": 35
+    },
+    {
+      "id": "FP-006",
+      "pattern": "__import__\\s*\\(\\s*[\"']os[\"']",
+      "severity": "high",
+      "description": "Dynamic import of os module for privilege escalation",
+      "score_impact": 20
+    },
+    {
+      "id": "FP-007",
+      "pattern": "exec\\s*\\(\\s*(?:compile|__import__|open)",
+      "severity": "critical",
+      "description": "Obfuscated Python code execution",
+      "score_impact": 35
+    },
+    {
+      "id": "FP-008",
+      "pattern": "cat\\s+~/\\.(?:aws|gcloud|config)/",
+      "severity": "critical",
+      "description": "Credential theft — reads cloud provider config",
+      "score_impact": 45
+    },
+    {
+      "id": "FP-009",
+      "pattern": "cat\\s+~/\\.ssh/(?:id_rsa|id_ed25519)",
+      "severity": "critical",
+      "description": "SSH private key theft",
+      "score_impact": 50
+    },
+    {
+      "id": "FP-010",
+      "pattern": "nc\\s+-[nlvp]+\\s+\\d+",
+      "severity": "critical",
+      "description": "Netcat listener — reverse shell setup",
+      "score_impact": 50
+    },
+    {
+      "id": "FP-011",
+      "pattern": "bash\\s+-i\\s+>&\\s+/dev/tcp/",
+      "severity": "critical",
+      "description": "Reverse shell one-liner",
+      "score_impact": 50
+    },
+    {
+      "id": "FP-012",
+      "pattern": "base64\\s+(?:--decode|---decode|-d)\\s",
+      "severity": "high",
+      "description": "Base64 decode of potentially obfuscated payload",
+      "score_impact": 15
+    },
+    {
+      "id": "FP-013",
+      "pattern": "dd\\s+if=/dev/(?:urandom|random|zero)\\s+of=/dev/sd",
+      "severity": "critical",
+      "description": "Disk destruction via dd",
+      "score_impact": 50
+    },
+    {
+      "id": "FP-014",
+      "pattern": "chmod\\s+777\\s+/",
+      "severity": "high",
+      "description": "World-writable permission on system path",
+      "score_impact": 25
+    },
+    {
+      "id": "FP-015",
+      "pattern": "crontab\\s+.*[|].*crontab",
+      "severity": "high",
+      "description": "Persistent cron job injection",
+      "score_impact": 25
+    },
+    {
+      "id": "FP-016",
+      "pattern": "systemctl\\s+(?:enable|start)\\s+.*\\.service",
+      "severity": "high",
+      "description": "Systemd service persistence",
+      "score_impact": 25
+    },
+    {
+      "id": "FP-017",
+      "pattern": "\\.bashrc[ \t]*[|>]|\\.profile[ \t]*[|>]|\\.zshrc[ \t]*[|>]",
+      "severity": "high",
+      "description": "Shell profile modification — persistence",
+      "score_impact": 20
+    },
+    {
+      "id": "FP-018",
+      "pattern": "grep\\s+-r\\s+['\"]password['\"]",
+      "severity": "high",
+      "description": "Credential harvesting via grep",
+      "score_impact": 25
+    },
+    {
+      "id": "FP-019",
+      "pattern": "sendmail|msmtp|ssmtp|curl.*smtp://",
+      "severity": "medium",
+      "description": "Data exfiltration via email/SMTP",
+      "score_impact": 15
+    },
+    {
+      "id": "FP-020",
+      "pattern": "curl.*discord.*webhook|curl.*slack.*webhook",
+      "severity": "high",
+      "description": "Data exfiltration to Discord/Slack webhook",
+      "score_impact": 30
+    }
+  ]
+}
